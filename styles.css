@@ -22,7 +22,6 @@
   font-display: swap;
 }
 
-
 :root {
   --color-light-gray: #f8f8f8;
   --color-turquoise: #41f6d7;
@@ -40,6 +39,9 @@
   --input-height: 40px;
 }
 
+/* body {
+  max-width: 1120px;
+} */
 
 .brands-services__headline {
   display: flex;
@@ -88,4 +90,3 @@
   opacity: 0.5;
   cursor: pointer;
 }
-
