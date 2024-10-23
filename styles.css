@@ -75,24 +75,6 @@ body {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 768px) {
-  .brands-services__headline::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 78px;
-    height: 100%;
-    width: 100px;
-    background: linear-gradient(
-      to right,
-      rgba(248, 248, 248, 0),
-      rgba(248, 248, 248, 1)
-    );
-    pointer-events: none;
-    z-index: 2;
-  }
-}
-
 .brands-services__slide {
   display: flex;
   max-width: fit-content;
@@ -123,4 +105,55 @@ body {
 .brands-services__button:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.description-continue-button {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .brands-services__headline::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 78px;
+    height: 100%;
+    width: 100px;
+    background: linear-gradient(
+      to right,
+      rgba(248, 248, 248, 0),
+      rgba(248, 248, 248, 1)
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1119px) {
+  .brands-services__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .description-continue-button {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    opacity: 1;
+    border: none;
+    background: transparent;
+  }
+
+  .description-continue-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .description-continue-button.show-less img {
+    transform: rotate(180deg);
+  }
+
+
 }
