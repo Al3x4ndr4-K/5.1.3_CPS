@@ -1,33 +1,63 @@
-if (window.innerWidth <= 767) {
-  var swiper = new Swiper(".swiper", {
-    slidesPerView: "auto",
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+let swiper = null
 
-    mousewhell: true,
-    keyboard: true,
-  })
-}
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth <= 767) {
+    swiper = new Swiper(".swiper", {
+      slidesPerView: "auto",
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      mousewhell: true,
+      keyboard: true,
+    })
+  }
+})
 
-const descriptionContinueButton = document.querySelector('.description-continue-button');
-const slides = document.querySelectorAll('.brands-services__slide');
+window.addEventListener("resize", function () {
+  if (swiper) {
+    swiper.destroy()
+    swiper = null
+  }
+  if (window.innerWidth <= 767) {
+    swiper = new Swiper(".swiper", {
+      slidesPerView: "auto",
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      mousewhell: true,
+      keyboard: true,
+    })
+  }
+})
 
-descriptionContinueButton.addEventListener('click', () => {
-  if (descriptionContinueButton.classList.contains('show-less')) {
+const descriptionContinueButton = document.querySelector(
+  ".description-continue-button"
+)
+const slides = document.querySelectorAll(".brands-services__slide")
+
+descriptionContinueButton.addEventListener("click", () => {
+  if (descriptionContinueButton.classList.contains("show-less")) {
     slides.forEach((slide, index) => {
-      if (index >= 6) {
-        slide.style.display = 'none';
+      slide.style.display = "flex"
+    })
+    slides.forEach((slide, index) => {
+      if (index >= 6 && window.innerWidth < 1119) {
+        slide.style.display = "none"
+      } else if (index >= 8 && window.innerWidth >= 1119) {
+        slide.style.display = "none"
       }
-    });
-    descriptionContinueButton.classList.remove('show-less');
+    })
+    descriptionContinueButton.classList.remove("show-less")
   } else {
     slides.forEach((slide, index) => {
-      if (index >= 6) {
-        slide.style.display = 'block';
+      if (index >= 6 && window.innerWidth < 1119) {
+        slide.style.display = "flex"
+      } else if (index >= 8 && window.innerWidth >= 1119) {
+        slide.style.display = "flex"
       }
-    });
-    descriptionContinueButton.classList.add('show-less');
+    })
+    descriptionContinueButton.classList.add("show-less")
   }
-});
+})
